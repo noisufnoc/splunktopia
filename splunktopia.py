@@ -8,8 +8,9 @@ __author__ = 'Mike Walker'
 # TODO: Activity metrics into JSON
 
 import sys
-import zwift
+from zwift import Client as ZwiftClient
 
+# Parse user creds, player_id
 username = sys.argv[1]
 password = sys.argv[2]
 player_id = sys.argv[3]
@@ -17,3 +18,8 @@ player_id = sys.argv[3]
 print('username is ', username)
 print('password is ', password)
 print('player_id is ', player_id)
+
+client = ZwiftClient(username, password)
+profile = client.get_profile()
+
+print(profile.latest_activity)
