@@ -20,7 +20,12 @@ print('password is ', password)
 print('player_id is ', player_id)
 
 client = ZwiftClient(username, password)
-profile = client.get_profile()
-# profile = client.get_profile(player_id)
+# profile = client.get_profile()
+profile = client.get_profile(player_id)
 
 print(profile.latest_activity)
+
+if profile.latest_activity['profile']['riding']:
+    print('Riding')
+    world = client.get_world(profile.latest_activity['worldId'])
+    print(world.players)
