@@ -2,11 +2,6 @@
 
 __author__ = 'Mike Walker'
 
-# TODO: Handle creds/auth
-# TODO: Iterate through profile
-# TODO: Iterate through activity metrics
-# TODO: Activity metrics into JSON
-
 import sys
 from zwift import Client as ZwiftClient
 
@@ -20,7 +15,6 @@ print('password is ', password)
 print('player_id is ', player_id)
 
 client = ZwiftClient(username, password)
-# profile = client.get_profile()
 profile = client.get_profile(player_id)
 
 print(profile.latest_activity)
@@ -33,12 +27,12 @@ if profile.latest_activity['profile']['riding']:
 
     data.update({
         'online': True,
-        'heartrate': print(world.player_status(player_id).heartrate),
-        'cadence': print(world.player_status(player_id).cadence),
-        'power': print(world.player_status(player_id).power),
-        'speed': print(world.player_status(player_id).speed),
-        'altitude': print(world.player_status(player_id).altitude),
-        'distance': print(world.player_status(player_id).distance)
+        'heartrate': world.player_status(player_id).heartrate,
+        'cadence': world.player_status(player_id).cadence,
+        'power': world.player_status(player_id).power,
+        'speed': world.player_status(player_id).speed,
+        'altitude': world.player_status(player_id).altitude,
+        'distance': world.player_status(player_id).distance
     })
 
     print(data)
