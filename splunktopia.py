@@ -10,10 +10,6 @@ username = sys.argv[1]
 password = sys.argv[2]
 player_id = sys.argv[3]
 
-# print('username is ', username)
-# print('password is ', password)
-# print('player_id is ', player_id)
-
 client = ZwiftClient(username, password)
 profile = client.get_profile(player_id)
 
