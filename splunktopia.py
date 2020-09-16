@@ -10,19 +10,19 @@ username = sys.argv[1]
 password = sys.argv[2]
 player_id = sys.argv[3]
 
-print('username is ', username)
-print('password is ', password)
-print('player_id is ', player_id)
+#print('username is ', username)
+#print('password is ', password)
+#print('player_id is ', player_id)
 
 client = ZwiftClient(username, password)
 profile = client.get_profile(player_id)
 
-print(profile.latest_activity)
+#print(profile.latest_activity)
 
 data = {}
 
 if profile.latest_activity['profile']['riding']:
-    print('Riding')
+#    print('Riding')
     world = client.get_world(profile.latest_activity['profile']['worldId'])
 
     data.update({
