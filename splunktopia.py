@@ -21,5 +21,6 @@ print('player_id is ', player_id)
 
 client = ZwiftClient(username, password)
 profile = client.get_profile()
+# profile = client.get_profile(player_id)
 
 print(profile.latest_activity)
