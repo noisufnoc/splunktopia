@@ -25,7 +25,20 @@ profile = client.get_profile(player_id)
 
 print(profile.latest_activity)
 
+data = {}
+
 if profile.latest_activity['profile']['riding']:
     print('Riding')
-    world = client.get_world(profile.latest_activity['worldId'])
-    print(world.players)
+    world = client.get_world(profile.latest_activity['profile']['worldId'])
+
+    data.update({
+        'online': True,
+        'heartrate': print(world.player_status(player_id).heartrate),
+        'cadence': print(world.player_status(player_id).cadence),
+        'power': print(world.player_status(player_id).power),
+        'speed': print(world.player_status(player_id).speed),
+        'altitude': print(world.player_status(player_id).altitude),
+        'distance': print(world.player_status(player_id).distance)
+    })
+
+    print(data)
