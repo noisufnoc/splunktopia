@@ -3,6 +3,7 @@
 __author__ = 'Mike Walker'
 
 import sys
+import time
 from zwift import Client as ZwiftClient
 
 # Parse user creds, player_id
@@ -22,6 +23,7 @@ if profile.latest_activity['profile']['riding']:
     world = client.get_world(profile.latest_activity['profile']['worldId'])
 
     data.update({
+        'timestamp': time.time(),
         'online': True,
         'heartrate': world.player_status(player_id).heartrate,
         'cadence': world.player_status(player_id).cadence,
