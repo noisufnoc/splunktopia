@@ -2,6 +2,11 @@
 
 __author__ = 'Mike Walker'
 
+# TODO: Handle creds/auth
+# TODO: Iterate through profile
+# TODO: Iterate through activity metrics
+# TODO: Activity metrics into JSON
+
 import sys
 import zwift
 
