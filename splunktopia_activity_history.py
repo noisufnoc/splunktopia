@@ -13,9 +13,4 @@ player_id = sys.argv[3]
 client = ZwiftClient(username, password)
 profile = client.get_profile(player_id)
 
-# print(profile.latest_activity)
-
-data = {}
-
-print(profile.profile)
 print(profile.latest_activity)
