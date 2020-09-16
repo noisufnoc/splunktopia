@@ -12,5 +12,14 @@ player_id = sys.argv[3]
 
 client = ZwiftClient(username, password)
 profile = client.get_profile(player_id)
+activity = client.get_activity(player_id)
 
-print(profile.latest_activity)
+if len(sys.argv) == 5:
+    if int(sys.argv[4]) < 20:
+        activity_list = activity.list(limit=sys.argv[4])
+        for i in activity_list:
+            print(i)
+    else:
+        print(activity.list())
+else:
+    print(profile.latest_activity)
