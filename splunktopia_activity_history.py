@@ -25,5 +25,9 @@ if len(sys.argv) == 5:
     except:
         print("Got invalid arg. Exiting")
         pass
+elif len(sys.argv) == 6:
+    activity_list = activity.list(start=sys.argv[4], limit=sys.argv[5])
+    for i in activity_list:
+        print(i)
 else:
     print(profile.latest_activity)
